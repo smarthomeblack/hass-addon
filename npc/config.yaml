@@ -1,10 +1,10 @@
-{
-  "name": "NPC Add-on",
-  "description": "Add-on for running NPC service in Home Assistant",
-  "version": "2025.5.31",
-  "slug": "npcmienmac",
-  "init": false,
-  "arch": ["amd64"],
-  "image": "ghcr.io/smarthomeblack/npc-{arch}:2025.5.31",
-  "map": ["config:rw"]
-}
+name: "NPC Add-on"
+description: "Add-on for running NPC service in Home Assistant"
+version: "2025.5.31"
+slug: "npcmienmac"
+init: false
+map:
+  - config:rw
+arch:
+- amd64
+image: "ghcr.io/smarthomeblack/npc-{arch}"
