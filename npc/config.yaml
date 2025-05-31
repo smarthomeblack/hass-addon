@@ -5,4 +5,4 @@ slug: "npcmienmac"
 init: false
 arch:
 - amd64
-image: "ghcr.io/smarthomeblack/npcmienmac-{arch}"
+image: "ghcr.io/smarthomeblack/npc-{arch}"
