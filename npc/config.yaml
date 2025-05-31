@@ -29,4 +29,5 @@ schema:
   gemini_model: str
 arch:
 - amd64
+- aarch64
 image: "ghcr.io/smarthomeblack/npc-{arch}"
