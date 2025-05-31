@@ -1,6 +1,6 @@
 name: "NPC Add-on"
 description: "Add-on for running NPC service in Home Assistant"
-version: "2025.5.31a"
+version: "2025.5.31b"
 slug: "npcmienmac"
 init: false
 map:
