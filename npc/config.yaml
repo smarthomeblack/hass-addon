@@ -1,10 +1,8 @@
 name: "NPC Add-on"
 description: "Add-on for running NPC service in Home Assistant"
 version: "2025.5.31"
-slug: "npc"
+slug: "npcmienmac"
 init: false
 arch:
-  - amd64
-  - armhf
-  - aarch64
-image: "ghcr.io/smarthomeblack/npc-{arch}"
+- amd64
+image: "ghcr.io/smarthomeblack/npcmienmac-{arch}"
