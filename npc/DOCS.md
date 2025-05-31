@@ -1,5 +1,4 @@
-# 🔌 NPC Electricity MQTT Bridge
-
+# 🔌 NPC Miền Bắc
 Công cụ tự động đăng nhập vào website CSKH NPC (miền Bắc), lấy dữ liệu điện tiêu thụ & tiền điện, và gửi qua MQTT về Home Assistant.
 
 - ✅ Không cần đăng nhập thủ công
