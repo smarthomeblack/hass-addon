@@ -1,10 +1,32 @@
 name: "NPC Add-on"
 description: "Add-on for running NPC service in Home Assistant"
-version: "2025.5.31"
+version: "2025.5.31a"
 slug: "npcmienmac"
 init: false
 map:
   - config:rw
+options:
+  makhachhang: "xxx"
+  mqtt_server: "localhost"
+  mqtt_port: 1883
+  mqtt_username: "xxx"
+  mqtt_password: "xxx"
+  mqtt_topic_prefix: "homeassistant"
+  usernpc: "xxx"
+  passnpc: "xxx"
+  gemini_api_key: "xxx"
+  gemini_model: "gemini-2.0-flash"
+schema:
+  makhachhang: str
+  mqtt_server: str
+  mqtt_port: int
+  mqtt_username: str
+  mqtt_password: str
+  mqtt_topic_prefix: str
+  usernpc: str
+  passnpc: str
+  gemini_api_key: str
+  gemini_model: str
 arch:
 - amd64
 image: "ghcr.io/smarthomeblack/npc-{arch}"
