@@ -39,6 +39,61 @@ Sau khi khởi chạy lần đầu sẽ mất chút thời gian để lấy dữ
 - Và nhiều cảm biến khác
 
 ---
+## Hiển Thị Cảm Biến Trên Home Assistant
+
+- Chi Tiết Tiêu Thụ Các Ngày Trong Tháng
+```yaml
+type: markdown
+title: NPC Chi Tiết Tiêu Thụ Tháng Này
+content: >
+  **Trạng thái tháng**: `{{
+  states('sensor.npc_chi_tiet_dien_tieu_thu_thang_nay') }}`
+
+
+  <details>
+    <summary><strong>Chi tiết dữ liệu</strong></summary>
+    
+    Ngày         - Chỉ số (kWh)     - Điện tiêu thụ (kWh)
+    -
+    {% for d in state_attr('sensor.npc_chi_tiet_dien_tieu_thu_thang_nay', 'data') %}
+    {{ d['Ngày'] }} | {{ d['Chỉ số'] }} kWh | {{ d['Điện tiêu thụ (kWh)'] }} kWh
+    {% endfor %}
+
+    **Start date**: {{ state_attr('sensor.npc_chi_tiet_dien_tieu_thu_thang_nay','start_date') }}  
+    **End date**: {{ state_attr('sensor.npc_chi_tiet_dien_tieu_thu_thang_nay','end_date') }}
+  </details>``
+```
+
+- Các cảm biến khác
+```yaml
+type: entities
+entities:
+  - sensor.npc_cookie
+  - sensor.npc_lan_cap_nhat_cuoi
+  - sensor.npc_chi_so_dau_ky
+  - sensor.npc_chi_so_cuoi_ky
+  - sensor.npc_chi_so_tam_chot
+  - sensor.npc_tien_dien_thang_truoc
+  - sensor.npc_tieu_thu_hom_nay
+  - sensor.npc_tieu_thu_hom_qua
+  - sensor.npc_tieu_thu_thang_nay
+  - sensor.npc_tieu_thu_thang_truoc
+```
+
+---
+
+## 🖼️ Demo
+
+<details>
+  <summary><strong>Xem ảnh minh họa</strong></summary>
+
+  <img src="1.png" width="600"/>
+  <img src="2.png" width="600"/>
+  <img src="3.png" width="600"/>
+
+</details>
+
+---
 
 ## ❓ Câu hỏi thường gặp
 
@@ -56,5 +111,6 @@ Sau khi khởi chạy lần đầu sẽ mất chút thời gian để lấy dữ
 ## ❤️ Đóng góp
 
 Nếu bạn có câu hỏi hoặc muốn cải tiến, hãy mở [Issue](https://github.com/smarthomeblack/hass-addon/npc/issues) hoặc gửi PR.
+
 
 
