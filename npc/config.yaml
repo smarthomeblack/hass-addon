@@ -1,6 +1,6 @@
 name: "NPC Miền Bắc"
 description: "Add-on for running NPC service in Home Assistant"
-version: "latest"
+version: "2025.6.1b"
 slug: "npc"
 init: false
 map:
