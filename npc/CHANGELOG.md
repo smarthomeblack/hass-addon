@@ -1,7 +1,7 @@
 Changelog
 
 2025.6.2d
-Thêm ngày đầu kỳ vào cấu hình
+Thêm ngày đầu kỳ vào cấu hình,thêm tiền điện tháng này và tiền điện hôm kia
 
 2025.6.2b
 Thêm Delay tránh gửi request quá nhanh
