@@ -99,6 +99,7 @@ entities:
   - sensor.npc_tien_dien_thang_truoc
   - sensor.npc_tieu_thu_hom_nay
   - sensor.npc_tieu_thu_hom_qua
+  - sensor.npc_tieu_thu_hom_kia
   - sensor.npc_tieu_thu_thang_nay
   - sensor.npc_tieu_thu_thang_truoc
 ```
