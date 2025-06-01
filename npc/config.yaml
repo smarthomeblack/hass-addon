@@ -1,7 +1,7 @@
 name: "NPC Miền Bắc"
 description: "Add-on NPC Miền Bắc in Home Assistant"
 url: "https://github.com/smarthomeblack/hass-addon"
-version: "2025.6.2"
+version: "2025.6.2a"
 slug: "npc"
 init: false
 map:
