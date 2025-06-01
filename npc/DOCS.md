@@ -22,6 +22,7 @@ usernpc=tài khoản npc
 passnpc=mật khẩu npc
 gemini_api_key=key api gemini
 gemini_model=gemini-2.0-flash
+ngaydauky=
 
 ```
 
