@@ -1,20 +1,20 @@
 name: "NPC Miền Bắc"
-description: "Add-on for running NPC service in Home Assistant"
-version: "2025.6.1b"
+description: "Add-on NPC Miền Bắc in Home Assistant"
+version: "2025.6.2"
 slug: "npc"
 init: false
 map:
   - config:rw
 options:
-  makhachhang: "xxx"
-  mqtt_server: "localhost"
+  makhachhang: "mã điểm đo"
+  mqtt_server: "điền ip của mqtt"
   mqtt_port: 1883
-  mqtt_username: "xxx"
-  mqtt_password: "xxx"
+  mqtt_username: "tài khoản mqtt"
+  mqtt_password: "mật khẩu mqtt"
   mqtt_topic_prefix: "homeassistant"
-  usernpc: "xxx"
-  passnpc: "xxx"
-  gemini_api_key: "xxx"
+  usernpc: "tài khoản npc miền bắc"
+  passnpc: "mật khẩu npc miền bắc"
+  gemini_api_key: "key api gemini"
   gemini_model: "gemini-2.0-flash"
 schema:
   makhachhang: str
