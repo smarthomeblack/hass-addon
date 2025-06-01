@@ -106,15 +106,10 @@ entities:
 
 ## 🖼️ Demo
 
-<details>
-  <summary><strong>Xem ảnh minh họa</strong></summary>
-
   <img src="1.png" width="600"/>
   <img src="2.png" width="600"/>
   <img src="3.png" width="600"/>
-
-</details>
-
+  
 ---
 
 ## ❓ Câu hỏi thường gặp
