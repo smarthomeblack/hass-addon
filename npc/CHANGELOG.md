@@ -1,4 +1,8 @@
 Changelog
+2025.6.2
+Fix Cảm Biến Tiêu Thụ Hôm Nay Và Hôm Qua Hoạt Động Chưa Chính Xác
+
+Changelog
 2025.6.1b
 Fix Mất Dữ Liệu Khi Khởi Động Lại
 
