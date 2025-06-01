@@ -94,6 +94,7 @@ entities:
   - sensor.npc_chi_so_dau_ky
   - sensor.npc_chi_so_cuoi_ky
   - sensor.npc_chi_so_tam_chot
+  - sensor.npc_tien_dien_thang_nay
   - sensor.npc_tien_dien_thang_truoc
   - sensor.npc_tieu_thu_hom_nay
   - sensor.npc_tieu_thu_hom_qua
