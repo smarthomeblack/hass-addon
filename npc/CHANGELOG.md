@@ -1,5 +1,8 @@
 Changelog
 
+2025.6.2d
+Thêm ngày đầu kỳ vào cấu hình
+
 2025.6.2b
 Thêm Delay tránh gửi request quá nhanh
 
