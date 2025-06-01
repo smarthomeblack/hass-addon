@@ -1,7 +1,7 @@
 name: "NPC Miền Bắc"
 description: "Add-on NPC Miền Bắc in Home Assistant"
 url: "https://github.com/smarthomeblack/hass-addon"
-version: "2025.6.2b"
+version: "2025.6.2d"
 slug: "npc"
 init: false
 map:
@@ -9,7 +9,7 @@ map:
 options:
   makhachhang: "mã điểm đo"
   mqtt_server: "điền ip của mqtt"
-  mqtt_port: 1883
+  mqtt_port: "1883"
   mqtt_username: "tài khoản mqtt"
   mqtt_password: "mật khẩu mqtt"
   mqtt_topic_prefix: "homeassistant"
@@ -17,6 +17,7 @@ options:
   passnpc: "mật khẩu npc miền bắc"
   gemini_api_key: "key api gemini"
   gemini_model: "gemini-2.0-flash"
+  ngaydauky: "ngày đầu kỳ, thường là 1 hoặc 15"
 schema:
   makhachhang: str
   mqtt_server: str
@@ -28,6 +29,7 @@ schema:
   passnpc: str
   gemini_api_key: str
   gemini_model: str
+  ngaydauky: str
 arch:
 - amd64
 - aarch64
