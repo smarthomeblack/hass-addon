@@ -106,10 +106,10 @@ entities:
 
 ## 🖼️ Demo
 
-  <img src="1.png" width="600"/>
-  <img src="2.png" width="600"/>
-  <img src="3.png" width="600"/>
-  
+<img title="NPC Config" src="https://raw.githubusercontent.com/smarthomeblack/hass-addon/refs/heads/main/npc/1.png" width="500px"></img>
+<img title="NPC Cảm Biến Cơ Bản" src="https://raw.githubusercontent.com/smarthomeblack/hass-addon/refs/heads/main/npc/2.png" width="500px"></img>
+<img title="NPC Cảm Biến Cơ Bản" src="https://raw.githubusercontent.com/smarthomeblack/hass-addon/refs/heads/main/npc/3.png" width="500px"></img>
+
 ---
 
 ## ❓ Câu hỏi thường gặp
