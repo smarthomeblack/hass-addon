@@ -10,19 +10,23 @@ Công cụ tự động đăng nhập vào website CSKH NPC (miền Bắc), lấ
 ## 🚀 Cách sử dụng
 
 ### 1. Tạo cấu hình
-
+Chú ý tài khoản cuối cùng luôn không có ký tự , ở cuối
 ```ini
-makhachhang=điền mã điểm đo(đăng nhập vào npc rồi lấy dữ liệu tiêu thụ là thấy mã điểm đo)
-mqtt_server=
-mqtt_port=1883
-mqtt_username=
-mqtt_password=
-mqtt_topic_prefix=homeassistant
-usernpc=tài khoản npc
-passnpc=mật khẩu npc
-gemini_api_key=key api gemini
-gemini_model=gemini-2.0-flash
-ngaydauky=
+accounts_json: |
+  [
+    {"madiemdo": "PM1310xxxxx38001", "usernpc": "PM13100xxxx738", "passnpc": "11223344"},
+    {"madiemdo": "PM13200xxxx51001", "usernpc": "PM13200xxxx951", "passnpc": "11223344"},
+    {"madiemdo": "PM1330xxxx913001", "usernpc": "PM13300xxxx913", "passnpc": "11223344"}
+  ]
+mqtt_server: 192.168.1.22
+mqtt_port: 1883
+mqtt_username: admin
+mqtt_password: 11223344
+mqtt_topic_prefix: homeassistant
+gemini_api_key: Key API
+gemini_model: gemini-2.0-flash
+ngaydauky: "15"
+
 
 ```
 
@@ -108,7 +112,8 @@ entities:
 
 ## 🖼️ Demo
 
-<img title="NPC Config" src="https://raw.githubusercontent.com/smarthomeblack/hass-addon/refs/heads/main/npc/1.png" width="500px"></img>
+<img title="NPC Config" src="https://raw.githubusercontent.com/smarthomeblack/hass-addon/refs/heads/main/npc/cauhinh.png" width="500px"></img>
+<img title="NPC Config" src="https://raw.githubusercontent.com/smarthomeblack/hass-addon/refs/heads/main/npc/cauhinh1.png" width="500px"></img>
 <img title="NPC Cảm Biến Cơ Bản" src="https://raw.githubusercontent.com/smarthomeblack/hass-addon/refs/heads/main/npc/2.png" width="500px"></img>
 <img title="NPC Cảm Biến Cơ Bản" src="https://raw.githubusercontent.com/smarthomeblack/hass-addon/refs/heads/main/npc/3.png" width="500px"></img>
 
