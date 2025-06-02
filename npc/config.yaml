@@ -7,34 +7,30 @@ init: false
 map:
   - config:rw
 options:
-  accounts:
-    - madiemdo: "mã điểm đo"
-      usernpc: "tài khoản npc"
-      passnpc: "mật khẩu npc"
-  mqtt:
-    mqtt_server: "ip của mqtt"
-    mqtt_port: 1883
-    mqtt_username: "tài khoản mqtt"
-    mqtt_password: "mật khẩu mqtt"
-    mqtt_topic_prefix: "homeassistant"
-  gemini_api_key: "key api gemini"
+  accounts_json: >
+    [
+      {"madiemdo": "mã điểm đo", "usernpc": "tài khoản npc", "passnpc": "mật khẩu npc"}
+    ]
+  mqtt_server: "192.168.1.22"
+  mqtt_port: 1883
+  mqtt_username: "admin"
+  mqtt_password: "12345678"
+  mqtt_topic_prefix: "homeassistant"
+  gemini_api_key: "API_KEY"
   gemini_model: "gemini-2.0-flash"
   ngaydauky: "15"
 
 schema:
-  accounts:
-    - madiemdo: str
-      usernpc: str
-      passnpc: str
-  mqtt:
-    mqtt_server: str
-    mqtt_port: int
-    mqtt_username: str
-    mqtt_password: str
-    mqtt_topic_prefix: str
+  accounts_json: str
+  mqtt_server: str
+  mqtt_port: int
+  mqtt_username: str
+  mqtt_password: str
+  mqtt_topic_prefix: str
   gemini_api_key: str
   gemini_model: str
   ngaydauky: str
+
 arch:
 - amd64
 - aarch64
