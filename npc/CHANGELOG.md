@@ -1,7 +1,7 @@
 Changelog
 
 2025.6.3
-Big Update.Hỗ trợ nhiều cấu hình nhiều tài khoản,fix kẹt khi chạy lại sau 2 tiếng trên một số máy yếu
+Big Update.Hỗ trợ nhiều cấu hình nhiều tài khoản,fix kẹt khi chạy lại sau 2 tiếng trên một số máy yếu.Cấu hình nhiều tài khoản nhớ chú ý cấu trúc config không lỗi
 
 2025.6.2d
 Thêm ngày đầu kỳ vào cấu hình,thêm tiền điện tháng này và tiền điện hôm kia
