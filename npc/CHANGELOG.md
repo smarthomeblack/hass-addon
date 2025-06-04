@@ -1,5 +1,8 @@
 Changelog
 
+2025.6.4
+Tự động tìm Mã điểm đo,không cần nhập trong cấu hình, thêm các sensor vào thiết bị riêng integrations để dễ dàng quản lý và theo dõi,tối ưu và hỗ trợ thêm cho aarch64.Vui lòng làm theo hướng dẫn mới nếu cập nhập bản này
+
 2025.6.3
 Big Update.Hỗ trợ nhiều cấu hình nhiều tài khoản,fix kẹt khi chạy lại sau 2 tiếng trên một số máy yếu.Cấu hình nhiều tài khoản nhớ chú ý cấu trúc config không lỗi
 
