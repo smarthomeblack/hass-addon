@@ -14,9 +14,9 @@ Chú ý tài khoản cuối cùng luôn không có ký tự , ở cuối
 ```ini
 accounts_json: |
   [
-    {"madiemdo": "PM1310xxxxx38001", "usernpc": "PM13100xxxx738", "passnpc": "11223344"},
-    {"madiemdo": "PM13200xxxx51001", "usernpc": "PM13200xxxx951", "passnpc": "11223344"},
-    {"madiemdo": "PM1330xxxx913001", "usernpc": "PM13300xxxx913", "passnpc": "11223344"}
+    {"usernpc": "PM13100xxxx738", "passnpc": "11223344"},
+    {"usernpc": "PM13200xxxx951", "passnpc": "11223344"},
+    {"usernpc": "PM13300xxxx913", "passnpc": "11223344"}
   ]
 mqtt_server: 192.168.1.22
 mqtt_port: 1883
@@ -33,7 +33,10 @@ ngaydauky: "15"
 > Bạn cần có tài khoản [Google Gemini](https://makersuite.google.com/app/apikey) để lấy `gemini_api_key`.
 
 ---
-
+- Vào Hacs Thêm Repo sau: https://github.com/smarthomeblack/npc
+- Sau khi thêm thì tìm NPC Miền Bắc
+- Khởi động lại Home Assistant, Vào Thiết Bị --> Thêm Thiết bị --> Nhập Tên Đăng Nhập NPC để thêm các Sensor
+- Hoặc tải thủ công custom_components/npc về rồi copy vào Home Assistant
 ## 📡 Kết quả
 
 Sau khi khởi chạy lần đầu sẽ mất chút thời gian để lấy dữ liệu, các cảm biến sẽ xuất hiện trong Home Assistant nhờ MQTT Discovery:
@@ -90,24 +93,6 @@ content: |
 
 ```
 
-- Các cảm biến khác
-```yaml
-type: entities
-entities:
-  - sensor.npc_cookie
-  - sensor.npc_lan_cap_nhat_cuoi
-  - sensor.npc_chi_so_dau_ky
-  - sensor.npc_chi_so_cuoi_ky
-  - sensor.npc_chi_so_tam_chot
-  - sensor.npc_tien_dien_thang_nay
-  - sensor.npc_tien_dien_thang_truoc
-  - sensor.npc_tieu_thu_hom_nay
-  - sensor.npc_tieu_thu_hom_qua
-  - sensor.npc_tieu_thu_hom_kia
-  - sensor.npc_tieu_thu_thang_nay
-  - sensor.npc_tieu_thu_thang_truoc
-```
-
 ---
 
 ## 🖼️ Demo
@@ -116,7 +101,8 @@ entities:
 <img title="NPC Config" src="https://raw.githubusercontent.com/smarthomeblack/hass-addon/refs/heads/main/npc/cauhinh1.png" width="500px"></img>
 <img title="NPC Cảm Biến Cơ Bản" src="https://raw.githubusercontent.com/smarthomeblack/hass-addon/refs/heads/main/npc/2.png" width="500px"></img>
 <img title="NPC Cảm Biến Cơ Bản" src="https://raw.githubusercontent.com/smarthomeblack/hass-addon/refs/heads/main/npc/3.png" width="500px"></img>
-
+<img title="NPC Cảm Biến Cơ Bản" src="https://raw.githubusercontent.com/smarthomeblack/hass-addon/refs/heads/main/npc/4.png" width="500px"></img>
+<img title="NPC Cảm Biến Cơ Bản" src="https://raw.githubusercontent.com/smarthomeblack/hass-addon/refs/heads/main/npc/5.png" width="500px"></img>
 ---
 
 ## ❓ Câu hỏi thường gặp
