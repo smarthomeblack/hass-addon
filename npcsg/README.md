@@ -107,8 +107,8 @@ content: |
 
 ## ❓ Câu hỏi thường gặp
 
-#### Q: Có cần tài khoản NPC không?
-> A: Cần. Bạn phải đăng ký tài khoản tại: https://cskh.npc.com.vn
+#### Q: Có cần tài khoản SPC không?
+> A: Cần. Bạn phải đăng ký tài khoản tại: https://www.cskh.evnspc.vn
 
 #### Q: Dữ liệu có tự động cập nhập không?
 > A: Có, dữ liệu sẽ tự động thu thập & gửi dữ liệu mỗi 120 phút.
