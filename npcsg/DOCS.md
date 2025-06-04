@@ -1,4 +1,4 @@
-# 🔌 NPC Miền Bắc
+# 🔌 EVNSPC Miền Nam
 
 Công cụ tự động đăng nhập vào website CSKH evnspc (miền Nam), lấy dữ liệu điện tiêu thụ & tiền điện, và gửi qua MQTT về Home Assistant.
 
