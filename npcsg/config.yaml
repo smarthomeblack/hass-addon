@@ -9,7 +9,7 @@ map:
 options:
   accounts_json: >
     [
-      {"usernpc": "tài khoản npc", "passnpc": "mật khẩu npc"}
+      {"usernpc": "tài khoản evnspc", "passnpc": "mật khẩu evnspc"}
     ]
   mqtt_server: "192.168.1.22"
   mqtt_port: 1883
