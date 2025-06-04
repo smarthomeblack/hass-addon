@@ -1,5 +1,5 @@
-name: "NPC Miền Nam"
-description: "Add-on NPC Miền Bắc in Home Assistant"
+name: "EVN Miền Nam"
+description: "Add-on EVN Miền Nam in Home Assistant"
 url: "https://github.com/smarthomeblack/hass-addon"
 version: "2025.6.4a"
 slug: "npcsg"
