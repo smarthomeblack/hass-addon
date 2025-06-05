@@ -6,6 +6,7 @@ slug: "npcsg"
 init: false
 map:
   - config:rw
+  - data:rw
 options:
   accounts_json: >
     [
@@ -21,6 +22,8 @@ options:
   ngaydauky: "15"
 ingress: true
 ingress_port: 1093
+ports:
+  1093/tcp: null
 schema:
   accounts_json: str
   mqtt_server: str
