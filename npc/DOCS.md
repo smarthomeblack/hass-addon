@@ -34,7 +34,7 @@ ngaydauky: "15"
 
 ---
 - Vào Hacs Thêm Repo sau: https://github.com/smarthomeblack/npc
-- Sau khi thêm thì tìm NPC Miền Bắc
+- Sau khi thêm thì tìm EVN VN
 - Khởi động lại Home Assistant, Vào Thiết Bị --> Thêm Thiết bị --> Nhập Tên Đăng Nhập NPC để thêm các Sensor
 - Hoặc tải thủ công custom_components/npc về rồi copy vào Home Assistant
 ## 📡 Kết quả
