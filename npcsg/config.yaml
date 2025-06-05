@@ -6,6 +6,7 @@ slug: "npcsg"
 init: false
 map:
   - config:rw
+  - data:rw
 options:
   accounts_json: >
     [
