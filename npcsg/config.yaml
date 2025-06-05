@@ -1,7 +1,7 @@
 name: "EVN Miền Nam"
 description: "Add-on EVN Miền Nam in Home Assistant"
 url: "https://github.com/smarthomeblack/hass-addon"
-version: "2025.6.4a"
+version: "2025.6.6"
 slug: "npcsg"
 init: false
 map:
@@ -9,7 +9,7 @@ map:
 options:
   accounts_json: >
     [
-      {"usernpc": "tài khoản evnspc", "passnpc": "mật khẩu evnspc"}
+      {"usernpc": "tài khoản evn", "passnpc": "mật khẩu evn"}
     ]
   mqtt_server: "192.168.1.22"
   mqtt_port: 1883
@@ -19,7 +19,8 @@ options:
   gemini_api_key: "API_KEY"
   gemini_model: "gemini-2.0-flash"
   ngaydauky: "15"
-
+ingress: true
+ingress_port: 1093
 schema:
   accounts_json: str
   mqtt_server: str
