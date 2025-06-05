@@ -1,7 +1,7 @@
 name: "EVN Miền Nam"
 description: "Add-on EVN Miền Nam in Home Assistant"
 url: "https://github.com/smarthomeblack/hass-addon"
-version: "2025.6.6"
+version: "2025.6.6a"
 slug: "npcsg"
 init: false
 map:
@@ -20,8 +20,6 @@ options:
   gemini_api_key: "API_KEY"
   gemini_model: "gemini-2.0-flash"
   ngaydauky: "15"
-ingress: true
-ingress_port: 1093
 ports:
   1093/tcp: null
 schema:
