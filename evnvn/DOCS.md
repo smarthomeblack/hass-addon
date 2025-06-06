@@ -39,7 +39,7 @@ Cấu hình Port 1093 để có view đẹp
 -  Sau khi config xong thì chạy addon, sang tab logs xem có lỗi gì không, đợi cho chạy xong lần đầu rồi làm bước tiếp theo
 - Vào Hacs Thêm Repo sau: https://github.com/smarthomeblack/npc
 - Sau khi thêm thì tìm EVN VN
-- Khởi động lại Home Assistant, Vào Thiết Bị --> Thêm Thiết bị --> Nhập Tên Đăng Nhập NPC để thêm các Sensor
+- Khởi động lại Home Assistant, Vào Thiết Bị --> Thêm Thiết bị --> Nhập Tên Đăng Nhập NPC để thêm các Sensor(EVN Miền trung đăng nhập bằng sdt thì khúc này nhập mã khách hàng)
 - Hoặc tải thủ công custom_components/npc về rồi copy vào Home Assistant
 ## 📡 Kết quả
 
