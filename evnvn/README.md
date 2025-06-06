@@ -60,7 +60,7 @@ Tạo file `options.json` tại đường dẫn đã chỉ định với nội d
   "mqtt_username": "tài khoản mqtt",
   "mqtt_password": "mật khẩu mqtt",
   "mqtt_topic_prefix": "homeassistant",
-  "gemini_api_key": "<api_key_gemini>",
+  "gemini_api_key": "api_key_gemini",
   "gemini_model": "gemini-2.0-flash",
   "ngaydauky": "1"
 }
