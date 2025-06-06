@@ -28,7 +28,7 @@ ngaydauky: "1"
 
 
 ```
-
+NPC và SPC Cần điền đúng key api gemini để bypass Capcha. Còn lại EVN khác thì điền bừa key api cũng được
 Cấu hình Port 1093 để có view đẹp
 
 
