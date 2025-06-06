@@ -245,8 +245,8 @@
                 const accountSelect = document.getElementById('accountSelect');
                 accounts.forEach((account, index) => {
                     const option = document.createElement('option');
-                    option.value = account.usernpc;
-                    option.textContent = account.usernpc;
+                    option.value = account.userevn;
+                    option.textContent = account.userevn;
                     accountSelect.appendChild(option);
                     if (index === 0) option.selected = true;
                 });
