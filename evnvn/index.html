@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thống Kê Điện 2025</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+            color: #e0e0e0;
+            transition: background 0.5s, color 0.5s;
+            margin: 0;
+            padding: 10px;
+        }
+        .light-mode {
+            background: linear-gradient(135deg, #f0f2f5 0%, #d1d9e6 100%);
+            color: #2d3748;
+        }
+        .card {
+            background: rgba(255, 255, 1255, 0.05);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+        .light-mode .card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: #2d3748;
+        }
+        .btn {
+            background: linear-gradient(90deg, #6b46c1, #d53f8c);
+            transition: transform 0.3s;
+            padding: 10px;
+            font-size: 1rem;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        .monthly-chart {
+            height: 350px;
+        }
+        .daily-chart {
+            height: 250px;
+        }
+        .content {
+            padding: 0;
+        }
+        h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        p {
+            margin: 2px 0;
+            font-size: 0.85rem;
+            line-height: 1.2;
+        }
+        select, input[type="date"] {
+            font-size: 0.9rem;
+            padding: 8px;
+            width: 100%;
+        }
+        #searchResult {
+            max-height: 200px; /* Tăng chiều cao tối đa */
+            width: 100%; /* Đảm bảo chiếm toàn width container */
+            background: #2d2d44;
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 70px; /* Tăng padding */
+            list-style: none;
+            overflow-y: auto; /* Giữ scroll khi vượt quá chiều cao */
+            margin-top: 10px; /* Thêm khoảng cách trên */
+        }
+        #searchResult li {
+            padding: 8px; /* Tăng padding cho từng item */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        #searchResult li.disabled {
+            color: #888;
+            font-style: italic;
+        }
+        #searchResult li:last-child {
+            border-bottom: none;
+        }
+        .grid-item {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 5px;
+        }
+        #summaryContainer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        #summaryContainer .card {
+            flex: 1 1 45%;
+            padding: 8px;
+            margin-bottom: 0;
+        }
+    
+        /* Media query cho mobile (dưới 768px) */
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr !important;
+                gap: 10px;
+            }
+            .card {
+                padding: 8px;
+            }
+            h3 {
+                font-size: 1rem;
+            }
+            p {
+                font-size: 0.75rem;
+            }
+            .chart-container {
+                height: 180px !important;
+            }
+            .flex {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            #accountSelect, #monthSelect {
+                margin-bottom: 5px;
+            }
+            #toggleMode {
+                width: 100%;
+            }
+            #summaryContainer .card {
+                flex: 1 1 45%;
+                padding: 6px;
+            }
+            #summaryContainer h3 {
+                font-size: 0.9rem;
+            }
+            #summaryContainer p {
+                font-size: 0.7rem;
+            }
+            .flex.justify-between.items-center {
+                margin-bottom: 8px;
+            }
+            #searchResult {
+                max-height: 150px; /* Giảm chiều cao trên mobile */
+                padding: 8px;
+                font-size: 0.8rem; /* Giảm font-size trên mobile */
+            }
+            #searchResult li {
+                padding: 6px;
+            }	
+        }
+    
+        /* Media query cho PC lớn hơn (trên 1024px) */
+        @media (min-width: 1024px) {
+            .grid {
+                gap: 15px;
+            }
+            .monthly-chart {
+                height: 300px;
+            }
+            .daily-chart {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-3">
+            <div class="flex items-center mb-4 md:mb-0">
+                <h1 class="text-2xl md:text-2xl font-bold">Black Smarthome!</h1>
+            </div>
+            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 w-full md:w-auto">
+                <select id="accountSelect" class="p-2 rounded-lg bg-gray-800 text-white w-full md:w-auto">
+                    <option value="">Chọn tài khoản</option>
+                </select>
+                <select id="monthSelect" class="p-2 rounded-lg bg-gray-800 text-white w-full md:w-auto"></select>
+                <button id="toggleMode" class="btn text-white px-4 py-2 rounded-lg w-full md:w-auto">Toggle Mode</button>
+            </div>
+        </div>
+    
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="card p-4 col-span-1">
+                <h3 class="text-lg font-semibold mb-2">Tổng Quan</h3>
+                <div class="grid-item">
+                    <div>
+                        <p><i class="fas fa-coins mr-2"></i>Tổng tiền: <strong id="totalCost"></strong> VND</p>
+                        <p><i class="fas fa-money-bill-wave mr-2"></i>Trung bình/tháng: <strong id="avgMonthlyCost"></strong> VND</p>
+                    </div>
+                    <div>
+                        <p><i class="fas fa-bolt mr-2"></i>Tiêu thụ/tháng: <strong id="avgMonthlyConsumption"></strong> kWh</p>
+                        <p><i class="fas fa-plug mr-2"></i>Tiêu thụ/ngày: <strong id="avgDailyConsumption"></strong> kWh</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4 mt-4" id="summaryContainer"></div>
+            </div>
+            <div class="card p-4 col-span-1 md:col-span-2">
+                <h3 class="text-lg font-semibold mb-2">Tiêu Thụ Hàng Tháng</h3>
+                <div class="chart-container monthly-chart">
+                    <canvas id="monthlyChart"></canvas>
+                </div>
+            </div>
+            <div class="card p-4 col-span-1">
+                <h3 class="text-lg font-semibold mb-2">Tìm Theo Ngày</h3>
+                <div class="space-y-2">
+                    <input type="date" id="startDate" class="w-full p-2 rounded-lg bg-gray-800 text-white">
+                    <input type="date" id="endDate" class="w-full p-2 rounded-lg bg-gray-800 text-white">
+                    <button id="searchBtn" class="btn w-full text-white py-2 rounded-lg">Tìm kiếm</button>
+                    <ul id="searchResult" class="w-full p-2 rounded-lg bg-gray-800 text-white mt-2 max-h-32 overflow-y-auto"></ul>
+                </div>
+            </div>
+            <div class="card p-4 col-span-1 md:col-span-2">
+                <h3 class="text-lg font-semibold mb-2">Tiêu Thụ Hàng Ngày</h3>
+                <div class="chart-container daily-chart">
+                    <canvas id="dailyChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let dailyChart = null;
+        let monthlyChart = null;
+        const currentYear = new Date().getFullYear();
+
+        async function loadAccounts() {
+            try {
+                const response = await fetch('/options');
+                if (!response.ok) throw new Error('Không thể tải file options.json');
+                const options = await response.json();
+                const accounts = JSON.parse(options.accounts_json);
+                const accountSelect = document.getElementById('accountSelect');
+                accounts.forEach((account, index) => {
+                    const option = document.createElement('option');
+                    option.value = account.usernpc;
+                    option.textContent = account.usernpc;
+                    accountSelect.appendChild(option);
+                    if (index === 0) option.selected = true;
+                });
+                accountSelect.addEventListener('change', loadDataForAccount);
+                loadDataForAccount();
+            } catch (error) {
+                console.error('Lỗi tải danh sách tài khoản:', error);
+                alert('Không thể tải danh sách tài khoản từ options.json. Kiểm tra file và server.');
+            }
+        }
+
+        async function loadDataForAccount() {
+            const account = document.getElementById('accountSelect').value;
+            if (!account) {
+                clearData();
+                return;
+            }
+
+            try {
+                const monthlyResponse = await fetch(`tien_dien_san_luong_${currentYear}_${account}.json`);
+                if (!monthlyResponse.ok) throw new Error(`Không thể tải file tien_dien_san_luong_${currentYear}_${account}.json`);
+                const monthlyData = await monthlyResponse.json();
+
+                const dailyResponse = await fetch(`dien_tieu_thu_${account}.json`);
+                if (!dailyResponse.ok) throw new Error(`Không thể tải file dien_tieu_thu_${account}.json`);
+                const dailyData = await dailyResponse.json();
+
+                processData(monthlyData, dailyData);
+            } catch (error) {
+                console.error('Lỗi tải dữ liệu:', error);
+                alert(`Lỗi: ${error.message}. Chạy qua server (Live Server) và kiểm tra file JSON.`);
+            }
+        }
+
+        function clearData() {
+            document.getElementById('totalCost').textContent = '';
+            document.getElementById('avgMonthlyCost').textContent = '';
+            document.getElementById('avgMonthlyConsumption').textContent = '';
+            document.getElementById('avgDailyConsumption').textContent = '';
+            document.getElementById('monthSelect').innerHTML = '';
+            document.getElementById('searchResult').innerHTML = '';
+            document.getElementById('summaryContainer').innerHTML = '';
+            if (dailyChart) dailyChart.destroy();
+            if (monthlyChart) monthlyChart.destroy();
+        }
+
+        function processData(monthlyData, dailyData) {
+            dailyData.forEach(day => {
+                if (day["Điện tiêu thụ (kWh)"] !== "Không có dữ liệu") {
+                    day["Điện tiêu thụ (kWh)"] = parseFloat(day["Điện tiêu thụ (kWh)"].replace(',', '.')) || 0;
+                } else {
+                    day["Điện tiêu thụ (kWh)"] = 0;
+                }
+            });
+
+            // Sắp xếp dailyData từ cũ nhất trước (cho biểu đồ)
+            dailyData.sort((a, b) => new Date(a.Ngày.split('-').reverse().join('-')) - new Date(b.Ngày.split('-').reverse().join('-')));
+
+            // Sắp xếp monthlyData từ cũ nhất trước (cho biểu đồ)
+            monthlyData.SanLuong.sort((a, b) => a.Tháng - b.Tháng);
+            monthlyData.TienDien.sort((a, b) => a.Tháng - b.Tháng);
+
+            const monthSelect = document.getElementById('monthSelect');
+            monthSelect.innerHTML = '';
+            const uniqueMonths = [...new Set(dailyData.map(day => day.Ngày.slice(3, 10)))];
+            // Sắp xếp từ mới nhất trước cho droplist
+            uniqueMonths.sort((a, b) => new Date(b.split('-').reverse().join('-')) - new Date(a.split('-').reverse().join('-')));
+            // Hiển thị đầy đủ tháng trong droplist
+            uniqueMonths.forEach(monthYear => {
+                const option = document.createElement('option');
+                option.value = monthYear;
+                option.textContent = `Tháng ${monthYear}`;
+                monthSelect.appendChild(option);
+            });
+            monthSelect.value = uniqueMonths[0];
+
+            // Chỉ lấy 4 tháng gần nhất cho Tổng Quan
+            const recentMonths = uniqueMonths.slice(0, 4);
+
+            const summaryContainer = document.getElementById('summaryContainer');
+            summaryContainer.innerHTML = '';
+            recentMonths.forEach((monthYear, index) => {
+                const monthNum = monthYear.split('-')[0];
+                const summaryDiv = document.createElement('div');
+                summaryDiv.className = 'card p-2';
+                summaryDiv.id = `summary-month-${index}`;
+                summaryDiv.innerHTML = `
+                    <h3>Tháng ${monthNum}</h3>
+                    <p>Min: <strong id="min-month-${index}"></strong> kWh</p>
+                    <p>Max: <strong id="max-month-${index}"></strong> kWh</p>
+                    <p>Avg: <strong id="avg-month-${index}"></strong> kWh</p>
+                `;
+                summaryContainer.appendChild(summaryDiv);
+
+                const monthData = dailyData.filter(d => d.Ngày.slice(3, 10) === monthYear && d["Điện tiêu thụ (kWh)"] > 0);
+                if (monthData.length > 0) {
+                    const values = monthData.map(d => d["Điện tiêu thụ (kWh)"]);
+                    document.getElementById(`min-month-${index}`).textContent = Math.min(...values).toFixed(2);
+                    document.getElementById(`max-month-${index}`).textContent = Math.max(...values).toFixed(2);
+                    document.getElementById(`avg-month-${index}`).textContent = (values.reduce((a, b) => a + b, 0) / values.length).toFixed(2);
+                } else {
+                    document.getElementById(`min-month-${index}`).textContent = '0';
+                    document.getElementById(`max-month-${index}`).textContent = '0';
+                    document.getElementById(`avg-month-${index}`).textContent = '0';
+                }
+            });
+
+            const totalCost = monthlyData.TienDien.reduce((sum, item) => sum + parseInt(item["Tiền Điện"] || 0), 0);
+            document.getElementById('totalCost').textContent = totalCost.toLocaleString();
+
+            const avgMonthlyCost = totalCost / monthlyData.TienDien.length || 0;
+            document.getElementById('avgMonthlyCost').textContent = avgMonthlyCost.toLocaleString(undefined, { maximumFractionDigits: 0 });
+
+            const totalMonthlyConsumption = monthlyData.SanLuong.reduce((sum, item) => sum + parseInt(item["Điện tiêu thụ (KWh)"] || 0), 0);
+            const avgMonthlyConsumption = totalMonthlyConsumption / monthlyData.SanLuong.length || 0;
+            document.getElementById('avgMonthlyConsumption').textContent = avgMonthlyConsumption.toFixed(2);
+
+            const validDailyData = dailyData.filter(day => day["Điện tiêu thụ (kWh)"] > 0);
+            const totalDailyConsumption = validDailyData.reduce((sum, day) => sum + day["Điện tiêu thụ (kWh)"], 0);
+            const avgDailyConsumption = validDailyData.length ? totalDailyConsumption / validDailyData.length : 0;
+            document.getElementById('avgDailyConsumption').textContent = avgDailyConsumption.toFixed(2);
+
+            if (monthlyChart) monthlyChart.destroy();
+            monthlyChart = new Chart(document.getElementById('monthlyChart'), {
+                type: 'bar',
+                data: {
+                    labels: monthlyData.SanLuong.map(item => `Tháng ${item.Tháng}`),
+                    datasets: [
+                        {
+                            label: 'Tiêu thụ (kWh)',
+                            data: monthlyData.SanLuong.map(item => parseInt(item["Điện tiêu thụ (KWh)"] || 0)),
+                            backgroundColor: 'rgba(147, 112, 219, 0.8)',
+                            borderColor: 'rgba(147, 112, 219, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y1'
+                        },
+                        {
+                            label: 'Hóa đơn (VND)',
+                            data: monthlyData.TienDien.map(item => parseInt(item["Tiền Điện"] || 0)),
+                            backgroundColor: 'rgba(233, 97, 171, 0.8)',
+                            borderColor: 'rgba(233, 97, 171, 1)',
+                            borderWidth: 1,
+                            yAxisID: 'y2'
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y1: {
+                            type: 'linear',
+                            position: 'left',
+                            beginAtZero: true,
+                            ticks: { color: document.body.classList.contains('light-mode') ? '#2d3748' : '#e0e0e0' },
+                            title: { display: true, text: 'Tiêu thụ (kWh)', color: document.body.classList.contains('light-mode') ? '#2d3748' : '#e0e0e0' }
+                        },
+                        y2: {
+                            type: 'linear',
+                            position: 'right',
+                            beginAtZero: true,
+                            ticks: { color: document.body.classList.contains('light-mode') ? '#2d3748' : '#e0e0e0' },
+                            title: { display: true, text: 'Hóa đơn (VND)', color: document.body.classList.contains('light-mode') ? '#2d3748' : '#e0e0e0' },
+                            grid: { drawOnChartArea: false }
+                        }
+                    },
+                    plugins: { legend: { labels: { color: document.body.classList.contains('light-mode') ? '#2d3748' : '#e0e0e0' } } },
+                    maintainAspectRatio: false,
+                    responsive: true
+                }
+            });
+
+            function updateDailyChart(data) {
+                const filteredData = data.filter(day => day["Điện tiêu thụ (kWh)"] > 0);
+                // Sắp xếp từ cũ nhất trước
+                filteredData.sort((a, b) => new Date(a.Ngày.split('-').reverse().join('-')) - new Date(b.Ngày.split('-').reverse().join('-')));
+                const dailyLabels = filteredData.map(day => day.Ngày);
+                const dailyDataValues = filteredData.map(day => day["Điện tiêu thụ (kWh)"]);
+                if (dailyChart) dailyChart.destroy();
+                dailyChart = new Chart(document.getElementById('dailyChart'), {
+                    type: 'line',
+                    data: {
+                        labels: dailyLabels,
+                        datasets: [{
+                            label: 'Tiêu thụ (kWh)',
+                            data: dailyDataValues,
+                            fill: true,
+                            backgroundColor: 'rgba(233, 97, 171, 0.2)',
+                            borderColor: 'rgba(233, 97, 171, 1)',
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        scales: { y: { beginAtZero: true, ticks: { color: document.body.classList.contains('light-mode') ? '#2d3748' : '#e0e0e0' } } },
+                        plugins: { legend: { labels: { color: document.body.classList.contains('light-mode') ? '#2d3748' : '#e0e0e0' } } },
+                        maintainAspectRatio: false,
+                        responsive: true
+                    }
+                });
+            }
+
+            const initialMonth = monthSelect.value;
+            const initialDailyData = dailyData.filter(day => day.Ngày && day.Ngày.includes(initialMonth));
+            updateDailyChart(initialDailyData);
+
+            monthSelect.addEventListener('change', (e) => {
+                const filteredDailyData = dailyData.filter(day => day.Ngày && day.Ngày.includes(e.target.value));
+                updateDailyChart(filteredDailyData);
+            });
+
+            document.getElementById('searchBtn').addEventListener('click', function() {
+                const startDate = new Date(document.getElementById('startDate').value);
+                const endDate = new Date(document.getElementById('endDate').value);
+                const searchResult = document.getElementById('searchResult');
+                searchResult.innerHTML = '';
+            
+                if (isNaN(startDate) || isNaN(endDate)) {
+                    alert('Vui lòng chọn ngày bắt đầu và ngày kết thúc hợp lệ!');
+                    return;
+                }
+            
+                if (startDate > endDate) {
+                    alert('Ngày bắt đầu không thể lớn hơn ngày kết thúc!');
+                    return;
+                }
+            
+                // Lọc dữ liệu
+                const filteredData = dailyData.filter(day => {
+                    const dayDate = new Date(day.Ngày.split('-').reverse().join('-'));
+                    return dayDate >= startDate && dayDate <= endDate && day["Điện tiêu thụ (kWh)"] > 0;
+                });
+            
+                // Hiển thị kết quả trong <ul>
+                if (filteredData.length === 0) {
+                    const li = document.createElement('li');
+                    li.textContent = 'Không có dữ liệu trong khoảng thời gian này';
+                    li.classList.add('disabled');
+                    searchResult.appendChild(li);
+                } else {
+                    filteredData.forEach(day => {
+                        const li = document.createElement('li');
+                        li.textContent = `${day.Ngày}: ${day["Điện tiêu thụ (kWh)"].toFixed(2)} kWh`;
+                        searchResult.appendChild(li);
+                    });
+            
+                    const totalConsumptionInRange = filteredData.reduce((sum, day) => sum + day["Điện tiêu thụ (kWh)"], 0);
+                    const avgCostPerKWh = totalCost / totalMonthlyConsumption || 0;
+                    const totalCostInRange = totalConsumptionInRange * avgCostPerKWh;
+                    const summaryLi = document.createElement('li');
+                    summaryLi.textContent = `Tổng tiêu thụ: ${totalConsumptionInRange.toFixed(2)} kWh, Tổng chi phí: ${totalCostInRange.toLocaleString(undefined, { maximumFractionDigits: 0 })} VND`;
+                    summaryLi.classList.add('disabled');
+                    searchResult.appendChild(summaryLi);
+                }
+            
+                // Cập nhật biểu đồ Tiêu Thụ Hàng Ngày
+                updateDailyChart(filteredData);
+            });
+
+            document.getElementById('toggleMode').addEventListener('click', function() {
+                document.body.classList.toggle('light-mode');
+                const isLight = document.body.classList.contains('light-mode');
+                this.textContent = isLight ? 'Toggle Dark' : 'Toggle Light';
+                document.querySelectorAll('.card, #monthSelect, #startDate, #endDate, #searchResult').forEach(el => {
+                    el.classList.toggle('light-mode');
+                });
+                if (dailyChart) dailyChart.update();
+                if (monthlyChart) monthlyChart.update();
+            });
+        }
+
+        window.onload = loadAccounts;
+    </script>
+</body>
+</html>
