@@ -1,3 +1,5 @@
+# Ai Dùng Docker thì vào thư mục từng dự án sẽ có hướng dẫn riêng cho Docker
+
 # Hướng Dẫn Thêm Kho Add-on cho Home Assistant
 
 Kho add-on này chứa các tiện ích mở rộng (add-ons) được phát triển bởi **smarthomeblack** để sử dụng trên Home Assistant. Dưới đây là hướng dẫn từng bước để thêm kho repository vào Home Assistant của bạn.
