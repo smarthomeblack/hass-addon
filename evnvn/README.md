@@ -115,7 +115,7 @@ homeassistant/tên_tài_khoản/...
 
 ## 📞 Hỗ trợ
 
-Liên hệ tác giả tại: [https://github.com/smarthomeblack](https://github.com/smarthomeblack)
+Nếu bạn có câu hỏi hoặc muốn cải tiến, hãy mở [Issue](https://github.com/smarthomeblack/hass-addon/evnvn/issues) hoặc gửi PR.
 
 ---
 
