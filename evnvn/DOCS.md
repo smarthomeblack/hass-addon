@@ -30,6 +30,9 @@ ngaydauky: "15"
 
 ```
 
+Cấu hình Port 1093 để có view đẹp
+
+
 > Bạn cần có tài khoản [Google Gemini](https://makersuite.google.com/app/apikey) để lấy `gemini_api_key`.
 
 ### 2. Chạy Addon
@@ -48,6 +51,10 @@ Sau khi khởi chạy lần đầu sẽ mất chút thời gian để lấy dữ
 - Và nhiều cảm biến khác
 
 ---
+## View Html
+
+- Tải file index.html cho vào thư mục config/evnvn của hass
+- vào Cài đặt -> bảng điều khiển -> thêm bảng điều khiển Trang Web, nhập http://ip hass:1093
 ## Hiển Thị Cảm Biến Trên Home Assistant
 
 - Chi Tiết Tiêu Thụ Các Ngày Trong Tháng
