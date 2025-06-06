@@ -24,10 +24,9 @@ https://github.com/smarthomeblack/hass-addon
 
 ## Danh sách Add-on Hiện Có
 Dưới đây là danh sách các add-on hiện có trong kho `smarthomeblack/hass-addon`:
-- **NPC Miền Bắc**: Add-on hỗ trợ tích hợp và quản lý dữ liệu từ NPC (Tổng Công ty Điện lực Miền Bắc) trên Home Assistant, giúp theo dõi và quản lý thông tin điện năng.
+- **EVN VN**: Add-on hỗ trợ tích hợp và quản lý dữ liệu từ EVN(NPC Miền Bắc, SCP Miền Nam, CPC Miền Trung, EVN Hanoi, E-thanglong trên Home Assistant, giúp theo dõi và quản lý thông tin điện năng.
 
 ## Lưu ý
-- Đảm bảo Home Assistant của bạn đã bật tính năng Add-on (thường có sẵn trên bản cài đặt Home Assistant Supervised hoặc Home Assistant OS).
 - Nếu gặp lỗi, kiểm tra kết nối mạng hoặc cập nhật Home Assistant lên phiên bản mới nhất.
 - Để biết thêm chi tiết về từng add-on, hãy xem mô tả trong trang cài đặt của add-on.
 
