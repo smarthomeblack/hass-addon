@@ -1,7 +1,7 @@
 name: "EVN VN"
 description: "Add-on EVN VN in Home Assistant"
 url: "https://github.com/smarthomeblack/hass-addon"
-version: "2025.6.6"
+version: "2025.6.7"
 slug: "evnvn"
 init: false
 map:
@@ -10,7 +10,7 @@ map:
 options:
   accounts_json: >
     [
-      {"usernpc": "tài khoản evn", "passnpc": "mật khẩu evn"}
+      {"userevn": "tài khoản evn", "passevn": "mật khẩu evn, "passevn": "mật khẩu evn", "ngaydauky": "1"}
     ]
   mqtt_server: "192.168.1.22"
   mqtt_port: 1883
@@ -19,7 +19,7 @@ options:
   mqtt_topic_prefix: "homeassistant"
   gemini_api_key: "API_KEY"
   gemini_model: "gemini-2.0-flash"
-  ngaydauky: "15"
+  ngaydauky: "1"
 ports:
   1093/tcp: null
 schema:
