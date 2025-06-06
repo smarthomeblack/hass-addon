@@ -32,7 +32,8 @@ ngaydauky: "15"
 
 > Bạn cần có tài khoản [Google Gemini](https://makersuite.google.com/app/apikey) để lấy `gemini_api_key`.
 
----
+### 2. Chạy Addon
+-  Sau khi config xong thì chạy addon, sang tab logs xem có lỗi gì không, đợi cho chạy xong lần đầu rồi làm bước tiếp theo
 - Vào Hacs Thêm Repo sau: https://github.com/smarthomeblack/npc
 - Sau khi thêm thì tìm EVN VN
 - Khởi động lại Home Assistant, Vào Thiết Bị --> Thêm Thiết bị --> Nhập Tên Đăng Nhập NPC để thêm các Sensor
