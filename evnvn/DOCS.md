@@ -121,7 +121,7 @@ content: |
 
 ## ❤️ Đóng góp
 
-Nếu bạn có câu hỏi hoặc muốn cải tiến, hãy mở [Issue](https://github.com/smarthomeblack/hass-addon/npc/issues) hoặc gửi PR.
+Nếu bạn có câu hỏi hoặc muốn cải tiến, hãy mở [Issue](https://github.com/smarthomeblack/hass-addon/evnvn/issues) hoặc gửi PR.
 
 
 
