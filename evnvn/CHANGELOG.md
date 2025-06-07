@@ -1,5 +1,8 @@
 Changelog
 
+2025.6.7a
+FIX Cảm biến tiêu thụ ngày cho EVN HN
+
 2025.6.7
 Thêm E-thanglong,Thêm cấu hình ngaydauky cho từng tài khoản
 
