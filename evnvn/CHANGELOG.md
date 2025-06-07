@@ -1,5 +1,8 @@
 Changelog
 
+2025.6.7b
+Fix đăng nhập CPC Miền Trung bằng mã khách hàng
+
 2025.6.7a
 FIX Cảm biến tiêu thụ ngày cho EVN HN
 
