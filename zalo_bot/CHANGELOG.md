@@ -1,5 +1,8 @@
 Changelog
 
+2026.3.19
+Fix Login QR CODE
+
 2025.10.8
 Fix hoàn toàn lỗi khởi động lại bị đăng xuất zalo, thêm trích dẫn tin nhắn, thêm kiểm tra trạng thái đăng nhập zalo account...
 

@@ -1,7 +1,7 @@
 name: "Zalo Bot"
 description: "Add-on Zalo Bot in Home Assistant"
 url: "https://github.com/smarthomeblack/hass-addon"
-version: "2025.10.8"
+version: "2026.3.19"
 slug: "zalo_bot"
 init: false
 map:
