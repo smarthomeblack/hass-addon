@@ -1,5 +1,8 @@
 Changelog
 
+2026.3.21
+Thêm lấy lịch sử chat nhóm
+
 2026.3.19
 Fix Login QR CODE
 
