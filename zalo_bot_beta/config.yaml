@@ -1,0 +1,29 @@
+name: "Zalo Bot Beta"
+description: "Add-on Zalo Bot in Home Assistant"
+url: "https://github.com/smarthomeblack/hass-addon"
+version: "2026.5.15"
+slug: "zalo_bot_beta"
+init: false
+ingress: true
+ingress_port: 3000
+panel_title: "Zalo Chat"
+map:
+  - config:rw
+  - data:rw
+  - share:rw
+ports:
+  3000/tcp: null
+ports_description:
+  3000/tcp: "Web interface & API"
+arch:
+  - amd64
+  - aarch64
+  - armv7
+  - armhf
+  - i386
+image: "ghcr.io/smarthomeblack/zalobotbeta-{arch}"
+
+options:
+  data_directory: "/config/zalo_bot"
+schema:
+  data_directory: "str"
