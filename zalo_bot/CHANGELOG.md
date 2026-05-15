@@ -1,5 +1,8 @@
 Changelog
 
+2026.5.15
+Refact lại giao diện, thêm chat trực tiếp qua webui
+
 2026.3.21
 Thêm lấy lịch sử chat nhóm
 
