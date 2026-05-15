@@ -1,5 +1,8 @@
 Changelog
 
+2026.5.15a
+Refact lại giao diện, thêm chat trực tiếp qua webui, Fix lỗi vặt
+
 2026.5.15
 Refact lại giao diện, thêm chat trực tiếp qua webui
 
