@@ -1,11 +1,12 @@
 name: "Zalo Bot Beta"
 description: "Add-on Zalo Bot in Home Assistant"
 url: "https://github.com/smarthomeblack/hass-addon"
-version: "2026.5.15b"
+version: "2026.5.15c"
 slug: "zalo_bot_beta"
 init: false
 ingress: true
 ingress_port: 3000
+panel_icon: "mdi:chat"
 panel_title: "Zalo Chat"
 map:
   - config:rw
