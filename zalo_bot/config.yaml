@@ -4,14 +4,18 @@ url: "https://github.com/smarthomeblack/hass-addon"
 version: "2026.5.15a"
 slug: "zalo_bot"
 init: false
-webui: "http://[HOST]:[PORT:3000]"
+ingress: true
+ingress_port: 3000
+panel_icon: "mdi:chat"
+panel_title: "Zalo Chat"
 map:
   - config:rw
   - data:rw
   - share:rw
-host_network: true
 ports:
   3000/tcp: null
+ports_description:
+  3000/tcp: "Web interface & API"
 arch:
   - amd64
   - aarch64
@@ -22,7 +26,5 @@ image: "ghcr.io/smarthomeblack/zalobot-{arch}"
 
 options:
   data_directory: "/config/zalo_bot"
-  port: 3000
 schema:
   data_directory: "str"
-  port: "int(1,65535)"
